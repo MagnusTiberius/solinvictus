@@ -83,18 +83,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::wstring elements[1024];
 	WinReg winreg;
 	HKEY hkey;
-	long res = winreg.LocalMachineKey(&hkey, L"SOFTWARE\\Intel\\Telemetry 2.0", elements);
+	long res = winreg.LocalMachineKey(&hkey, L"SOFTWARE\\www\\ggg 2.0", elements);
 	HKEY hkey2;
-	long res2 = winreg.LocalMachineKey(&hkey2, L"SOFTWARE\\Intel\\", elements);
+	long res2 = winreg.LocalMachineKey(&hkey2, L"SOFTWARE\\www\\", elements);
 
 	HKEY hkey3;
 	wchar_t buf[4096];
 	DWORD dlen = 4096;
 	memset(buf, '\0', 4096);
-	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\Intel\\Telemetry 2.0", L"Location64", L"", buf, &dlen);
+	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\Telemetry 2.0", L"Location64", L"", buf, &dlen);
 	long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", L"SystemRoot", L"", buf, &dlen);
-	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\Intel\\IAS", L"test", L"", buf, &dlen);
-	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\Intel\\Display\\igfxcui", L"Inst", L"", buf, &dlen);
+	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\IAS", L"test", L"", buf, &dlen);
+	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\Display\\igfxcui", L"Inst", L"", buf, &dlen);
 
 	uiautoconfig.execute("MSIEXEC_UNINSTALL_WIN32_DEBUG");
 	UiAutoUninstallValidate();
