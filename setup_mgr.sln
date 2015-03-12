@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "setup_repo", "setup_repo\setup_repo.vcxproj", "{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B} = {B84F7231-16CE-41D8-8C08-7B523FF4225B}
+		{346E1864-E184-487B-8684-1388E1D70F46} = {346E1864-E184-487B-8684-1388E1D70F46}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ias_util", "ias_util\ias_util.vcxproj", "{346E1864-E184-487B-8684-1388E1D70F46}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B} = {B84F7231-16CE-41D8-8C08-7B523FF4225B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_json", "jsoncpp\makefiles\vs71\lib_json.vcxproj", "{B84F7231-16CE-41D8-8C08-7B523FF4225B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lantern_rock_install", "lantern_rock_install\lantern_rock_install.vcxproj", "{0C20FE60-AA09-4290-BDF3-95DBF674D651}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B} = {B84F7231-16CE-41D8-8C08-7B523FF4225B}
+		{346E1864-E184-487B-8684-1388E1D70F46} = {346E1864-E184-487B-8684-1388E1D70F46}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "deploy_validate", "deploy_validate\deploy_validate.vcxproj", "{BA23A158-2085-4E4A-949A-B9AB93205E6D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		dummy|Win32 = dummy|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.Debug|Win32.Build.0 = Debug|Win32
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.dummy|Win32.ActiveCfg = Debug|Win32
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.dummy|Win32.Build.0 = Debug|Win32
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.Release|Win32.ActiveCfg = Release|Win32
+		{B5C7CC42-98F4-46E6-996F-85A46D68A7E3}.Release|Win32.Build.0 = Release|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.Debug|Win32.ActiveCfg = Debug|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.Debug|Win32.Build.0 = Debug|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.dummy|Win32.ActiveCfg = Debug|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.dummy|Win32.Build.0 = Debug|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.Release|Win32.ActiveCfg = Release|Win32
+		{346E1864-E184-487B-8684-1388E1D70F46}.Release|Win32.Build.0 = Release|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Debug|Win32.Build.0 = Debug|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.dummy|Win32.ActiveCfg = dummy|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.dummy|Win32.Build.0 = dummy|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.ActiveCfg = Release|Win32
+		{B84F7231-16CE-41D8-8C08-7B523FF4225B}.Release|Win32.Build.0 = Release|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.Debug|Win32.ActiveCfg = Debug|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.Debug|Win32.Build.0 = Debug|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.dummy|Win32.ActiveCfg = Debug|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.dummy|Win32.Build.0 = Debug|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.Release|Win32.ActiveCfg = Release|Win32
+		{0C20FE60-AA09-4290-BDF3-95DBF674D651}.Release|Win32.Build.0 = Release|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.Debug|Win32.Build.0 = Debug|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.dummy|Win32.ActiveCfg = Debug|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.dummy|Win32.Build.0 = Debug|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.Release|Win32.ActiveCfg = Release|Win32
+		{BA23A158-2085-4E4A-949A-B9AB93205E6D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
