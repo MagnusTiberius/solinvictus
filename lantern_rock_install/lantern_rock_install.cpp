@@ -110,7 +110,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	uiautoconfig.validateFiles("FILES_INSTALL");
 
-	long res4 = winreg.LocalMachineKey(&hkey2, L"SOFTWARE\\Intel\\", elements);
+	long res4 = winreg.LocalMachineKey(&hkey2, L"SOFTWARE\\www\\", elements);
 
 
 	std::cout << "Done" << std::endl;
