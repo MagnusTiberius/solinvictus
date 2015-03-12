@@ -12,3 +12,5 @@ A: I needed a way to look at the registry for a specific key, name and value. In
 Q: Why MsiExec?
 A: Calling MsiExec within the context of Automation allows me just run an install file (usually a .msi file) without me doing all the manual step.
 
+Q: Why JsonCpp?
+A: JsonCpp provided the features I needed to implement a way of storing meta-data in json format. This way, meta-data is decoupled from code.
