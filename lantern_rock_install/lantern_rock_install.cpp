@@ -91,7 +91,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	wchar_t buf[4096];
 	DWORD dlen = 4096;
 	memset(buf, '\0', 4096);
-	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\Telemetry 2.0", L"Location64", L"", buf, &dlen);
+	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\ggg 2.0", L"Location64", L"", buf, &dlen);
 	long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion", L"SystemRoot", L"", buf, &dlen);
 	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\IAS", L"test", L"", buf, &dlen);
 	//long res3 = winreg.GetRegValue(&hkey3, L"SOFTWARE\\www\\Display\\igfxcui", L"Inst", L"", buf, &dlen);
