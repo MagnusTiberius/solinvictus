@@ -18,3 +18,7 @@ A: Calling MsiExec within the context of Automation allows me just run an instal
 Q: Why JsonCpp?
 
 A: JsonCpp provided the features I needed to implement a way of storing meta-data in json format. This way, meta-data is decoupled from code.
+
+Q: File version check?
+
+A: I needed to pull file version for validating against the current/previous release.
