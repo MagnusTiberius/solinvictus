@@ -2,6 +2,7 @@
 #include "UIAuto.h"
 #include "SetupRepo.h"
 #include "CommandMsiExec.h"
+#include "Dll.h"
 
 class UiAutoConfig
 {
@@ -13,13 +14,16 @@ public:
 public:
 	DWORD execute(std::string cmdkey);
 	DWORD validateFiles(std::string str);
-
+	DWORD GetJsonValue(std::string cmdkey, std::string arr[]);
+	DWORD VerifyAddressName(char* dllfile, char* procnames);
+	DWORD GetJsonOneValue(std::string cmdkey, std::wstring *ws);
 private:
 	Json::Value root;
 	UIAuto uiauto;
 	SetupRepo setuprepo;
 	JsonConfig jsonconfig;
 	std::string json_config;
+	Dll dll;
 
 	//const std::string jcfg;
 };

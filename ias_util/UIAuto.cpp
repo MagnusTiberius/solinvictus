@@ -15,7 +15,7 @@ void CALLBACK UIAuto::PrintWindowName(HWND hwnd, LPARAM callerText)
 {
 	LPWSTR windowText = new TCHAR[2048];
 	GetWindowText(hwnd, windowText, 2048);
-	cout << "CALLERTEXT:" << callerText << ":WINDOWTEXT:" << windowText << endl;
+	wcout << "CALLERTEXT:" << callerText << ":WINDOWTEXT:" << windowText << endl;
 }
 
 BOOL CALLBACK UIAuto::ClickButton(HWND hwnd, LPARAM buttonText)
@@ -26,7 +26,7 @@ BOOL CALLBACK UIAuto::ClickButton(HWND hwnd, LPARAM buttonText)
 	if (_tcsstr(windowText, LPCTSTR(buttonText)) != NULL)
 	{
 		SendMessage(hwnd, BM_CLICK, 0, 0);
-		cout << "BUTTONSELECTED:" << windowText << endl;
+		wcout << "BUTTONSELECTED:" << windowText << endl;
 	}
 	return true;
 }
@@ -43,7 +43,7 @@ void UIAuto::selectMenuItem(HWND hwnd, HMENU menu, LPARAM menuText)
 		{
 			int menuItemID = GetMenuItemID(menu, i);
 			PostMessage(hwnd, WM_COMMAND, menuItemID, 0);
-			cout << "MENUSELECTED:" << menuItemID << ":OF:" << menuCount << endl;
+			wcout << "MENUSELECTED:" << menuItemID << ":OF:" << menuCount << endl;
 			return;
 		}
 	}
@@ -82,7 +82,7 @@ HMENU UIAuto::findMenu(HMENU menu, LPARAM menuText) //TCHAR menuText[ 2048 ] = "
 		GetMenuString(menu, i, menuString, 2048, MF_BYPOSITION);
 		if (_tcsstr(menuString, LPCTSTR(menuText)) != NULL)
 		{
-			cout << "FOUND:" << menuString << endl;
+			wcout << "FOUND:" << menuString << endl;
 			return GetSubMenu(menu, i);
 		}
 	}
@@ -94,7 +94,7 @@ HWND UIAuto::findWindow(LPARAM windowTitle) //TCHAR windowTitle[ 2048 ] = "Untit
 	HWND notepadHandle = FindWindow(0, LPCTSTR(windowTitle));
 	TCHAR title[250];
 	GetWindowText(notepadHandle, title, 250);
-	cout << "TITLE:" << title << endl;
+	//wcout << "TITLE:" << title << endl;
 	return notepadHandle;
 }
 
@@ -115,7 +115,7 @@ bool UIAuto::isProcessRunning(LPARAM processText) //TCHAR processText[ 2048 ] = 
 		GetModuleFileNameEx(hProcess, NULL, processName, 2048);  // Get process name from process handle
 		if (_tcsstr(processName, pt) != NULL) // Check if processName matches processText
 		{
-			cout << ":PROCESSNAME:" << processName << endl;
+			wcout << ":PROCESSNAME:" << processName << endl;
 			retVal = true;
 		}
 	}

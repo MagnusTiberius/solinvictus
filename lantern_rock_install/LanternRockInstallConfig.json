@@ -1,24 +1,32 @@
 {
    "MSI_PROGRAM" : "LanternRock.msi",
-   "INSTALL_WIN32_DEBUG" : "C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\debug\\",
-   "INSTALL_WIN32_RELEASE" : "C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\release\\",
+   "PRODUCT_ID" : "Telemetry 2.0",
+   "INSTALL_WIN32_DEBUG" : "C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\debug\\",
+   "INSTALL_WIN32_RELEASE" : "C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\release\\",
    
-   "MSIEXEC_INSTALL_WIN32_DEBUG" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\debug\\LanternRock.msi /lv log.txt",
-   "MSIEXEC_UNINSTALL_WIN32_DEBUG" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\debug\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_INSTALL_WIN32_DEBUG" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\debug\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_UNINSTALL_WIN32_DEBUG" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\debug\\LanternRock.msi /lv log.txt",
    
-   "MSIEXEC_INSTALL_WIN32_RELEASE" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\release\\LanternRock.msi /lv log.txt",
-   "MSIEXEC_UNINSTALL_WIN32_RELEASE" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\win32\\release\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_INSTALL_WIN32_RELEASE" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\release\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_UNINSTALL_WIN32_RELEASE" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\win32\\release\\LanternRock.msi /lv log.txt",
 
-   "MSIEXEC_INSTALL_X64_DEBUG" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\x64\\debug\\LanternRock.msi /lv log.txt",
-   "MSIEXEC_UNINSTALL_X64_DEBUG" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\x64\\debug\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_INSTALL_X64_DEBUG" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\x64\\debug\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_UNINSTALL_X64_DEBUG" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\x64\\debug\\LanternRock.msi /lv log.txt",
    
-   "MSIEXEC_INSTALL_X64_RELEASE" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\x64\\release\\LanternRock.msi /lv log.txt",
-   "MSIEXEC_UNINSTALL_X64_RELEASE" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.48.199814\\installer\\x64\\release\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_INSTALL_X64_RELEASE" : "msiexec /i C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\x64\\release\\LanternRock.msi /lv log.txt",
+   "MSIEXEC_UNINSTALL_X64_RELEASE" : "msiexec /x C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\telemetry-2.0.52.201493\\installer\\x64\\release\\LanternRock.msi /lv log.txt",
 
    "FILES_INSTALL" : ["C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\iasopt.exe"
-						, "C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\lrio.exe"],
+						, "C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\lrio.exe"
+						, "C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\consent.exe"],
 
    "FILES_INSTALL_X86" : ["C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\x86\\intel-ias2.dll"],
    "FILES_INSTALL_X64" : ["C:\\Program Files (x86)\\Intel\\Telemetry 2.0\\x64\\intel-ias2.dll"],
    
+   "REGISTRY_COMPANY" : ["SOFTWARE\\Intel\\"],
+   "REGISTRY_TELEMETRY" : ["SOFTWARE\\Intel\\Telemetry 2.0"],
+   
+   "DLL_PROC_ADDRESS_NAMES" : ["Initialize", "InitializeEx", "BeginSession", "BeginSessionEx", "EndSession", "RecordEvent", "RecordEventEx", "Deinitialize"],
+   
 }
+

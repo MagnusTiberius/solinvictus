@@ -28,13 +28,31 @@ DWORD UiAutoConfig::execute(std::string cmdkey)
 	return ret;
 }
 
+DWORD UiAutoConfig::GetJsonValue(std::string cmdkey, std::string arr[])
+{
+	Json::Value v = root.get(cmdkey, "");
+	Json::Value::ArrayIndex i = v.size();
+	for (int j = 0; j < i; j++) {
+		auto itm = v[j];
+		std::string s = itm.asString();
+		arr[j] = s;
+	}
+	return i;
+}
+
+DWORD UiAutoConfig::GetJsonOneValue(std::string cmdkey, std::wstring *ws)
+{
+	Json::Value v = root.get(cmdkey, "");
+	std::string s = v.asString();
+	*ws = jsonconfig.s2ws(s);
+	return 0;
+}
 
 DWORD UiAutoConfig::validateFiles(std::string str)
 {
 	DWORD ret = 0;
 	Json::Value arr = root.get(str, "");
 	if (arr.isArray()) {
-		std::cout << "ARRAY" << std::endl;
 		Json::Value::ArrayIndex i = arr.size();
 		for (int j=0; j < i; j++)
 		{
@@ -44,14 +62,66 @@ DWORD UiAutoConfig::validateFiles(std::string str)
 			const wchar_t* cwc = ws.c_str();
 			if (!jsonconfig.FileExist(cwc)) 
 			{
-				std::cout << "FILE NOT FOUND " << v << std::endl;
+				std::cout << "File not found: " << v << std::endl;
 				return 1;
 			}
 			else
 			{
-				std::cout << "FILE FOUND " << v << std::endl;
+				std::cout << "File found: " << v << std::endl;
 			}
 		}
 	}
 	return ret;
+}
+
+DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
+{
+	typedef int(__stdcall *f_funci)();
+	DWORD ret = 0;
+	Json::Value arr = root.get(dllfile, "");
+	if (arr.isArray()) {
+		Json::Value::ArrayIndex i = arr.size();
+		for (int j = 0; j < i; j++)
+		{
+			auto itm = arr[j];
+			auto v = itm.asString();
+			std::wstring ws = jsonconfig.s2ws(v);
+			const wchar_t* cwc = ws.c_str();
+			std::wcout << "Loading DLL to memory : " << cwc << std::endl;
+			HINSTANCE inst = dll.LoadDll(cwc);
+			if (inst != NULL) {
+				std::wcout << "Loaded into memory - valid state : " << cwc << std::endl;
+				Json::Value arrnames = root.get(procnames, "");
+				if (arrnames.isArray()) {
+					Json::Value::ArrayIndex b = arrnames.size();
+					for (int k = 0; k < b; k++)
+					{
+						auto itmname = arrnames[k];
+						auto vname = itmname.asString();
+						const char* cc = vname.c_str();
+						f_funci funci = (f_funci)dll.GetDllProcAddress(cc);
+						if (funci == NULL) 
+						{
+							ret = 1;
+							std::wcout << "Invalid state - Function not found : " << cc << "()" << std::endl;
+						}
+						else 
+						{
+							std::wcout << "Function is present - valid state : " << cc << "()" << std::endl;
+
+						}
+					}
+					dll.UnloadDll();
+					inst = NULL;
+				}
+			}
+			else 
+			{
+				std::wcout << "Not loaded into memory - invalid state : " << cwc << std::endl;
+			}
+		}
+	}
+	std::wcout << "Verification of library and proc addresses completed. " << std::endl;
+	return ret;
+
 }

@@ -11,7 +11,7 @@ WinReg::~WinReg()
 }
 
 
-long WinReg::LocalMachineKey(HKEY *hk, wchar_t* path, std::wstring elements[])
+long WinReg::LocalMachineKey(HKEY *hk, const wchar_t* path, std::wstring elements[], int* size)
 {
 	int count = 0;
 	WCHAR Temp[255];
@@ -26,6 +26,7 @@ long WinReg::LocalMachineKey(HKEY *hk, wchar_t* path, std::wstring elements[])
 			std::wcout << count << ". " << Temp << std::endl;
 		}
 	}
+	*size = count;
 	return n;
 }
 

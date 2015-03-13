@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommandMsiExec.h" />
+    <ClInclude Include="Dll.h" />
+    <ClInclude Include="IasVersion.h" />
     <ClInclude Include="JsonConfig.h" />
     <ClInclude Include="SetupRepo.h" />
     <ClInclude Include="stdafx.h" />
@@ -98,6 +100,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandMsiExec.cpp" />
+    <ClCompile Include="Dll.cpp" />
+    <ClCompile Include="IasVersion.cpp" />
     <ClCompile Include="JsonConfig.cpp" />
     <ClCompile Include="SetupRepo.cpp" />
     <ClCompile Include="UIAuto.cpp" />
