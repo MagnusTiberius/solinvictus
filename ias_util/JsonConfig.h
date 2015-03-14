@@ -8,7 +8,7 @@
 #include <tchar.h>
 #include <Windows.h>
 #include <direct.h>
-#include "json.h"
+#include "..\jsoncpp\include\json\json.h"
 
 class JsonConfig
 {

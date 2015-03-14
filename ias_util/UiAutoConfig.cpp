@@ -32,7 +32,7 @@ DWORD UiAutoConfig::GetJsonValue(std::string cmdkey, std::string arr[])
 {
 	Json::Value v = root.get(cmdkey, "");
 	Json::Value::ArrayIndex i = v.size();
-	for (int j = 0; j < i; j++) {
+	for (Json::Value::ArrayIndex j = 0; j < i; j++) {
 		auto itm = v[j];
 		std::string s = itm.asString();
 		arr[j] = s;
@@ -54,7 +54,7 @@ DWORD UiAutoConfig::validateFiles(std::string str)
 	Json::Value arr = root.get(str, "");
 	if (arr.isArray()) {
 		Json::Value::ArrayIndex i = arr.size();
-		for (int j=0; j < i; j++)
+		for (Json::Value::ArrayIndex j = 0; j < i; j++)
 		{
 			auto itm = arr[j];
 			auto v = itm.asString();
@@ -63,11 +63,50 @@ DWORD UiAutoConfig::validateFiles(std::string str)
 			if (!jsonconfig.FileExist(cwc)) 
 			{
 				std::cout << "File not found: " << v << std::endl;
-				return 1;
+				ret = 1;
 			}
 			else
 			{
 				std::cout << "File found: " << v << std::endl;
+			}
+		}
+	}
+	return ret;
+}
+
+DWORD UiAutoConfig::VerifyFunctionDefinition(char* dllfile, int actiontotake)
+{
+	DWORD ret = 0;
+	Json::Value arr = root.get(dllfile, "");
+	if (arr.isArray()) {
+		Json::Value::ArrayIndex i = arr.size();
+		for (Json::Value::ArrayIndex j = 0; j < i; j++)
+		{
+			auto itm = arr[j];
+			auto v = itm.asString();
+			std::wstring ws = jsonconfig.s2ws(v);
+			const wchar_t* cwc = ws.c_str();
+			std::wcout << "Loading DLL to memory : " << cwc << std::endl;
+			HINSTANCE inst = dll.LoadDll(cwc);
+			if (inst != NULL) {
+				std::wcout << "Loaded into memory - valid state : " << cwc << std::endl;
+				if (actiontotake == 1) {
+					dll.CommandApiVersion();
+				}
+				if (actiontotake == 2) {
+					dll.CommandHasSystemConsentFeature();
+				}
+				if (actiontotake == 3) {
+					dll.CommandInitialize();
+					dll.CommandRecordEvent();
+					dll.CommandDeinitialize();
+				}
+				dll.UnloadDll();
+				std::wcout << "Unloading DLL : " << cwc << std::endl;
+			}
+			else
+			{
+				std::wcout << "Not loaded into memory - invalid state : " << cwc << std::endl;
 			}
 		}
 	}
@@ -81,7 +120,7 @@ DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
 	Json::Value arr = root.get(dllfile, "");
 	if (arr.isArray()) {
 		Json::Value::ArrayIndex i = arr.size();
-		for (int j = 0; j < i; j++)
+		for (Json::Value::ArrayIndex j = 0; j < i; j++)
 		{
 			auto itm = arr[j];
 			auto v = itm.asString();
@@ -94,7 +133,7 @@ DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
 				Json::Value arrnames = root.get(procnames, "");
 				if (arrnames.isArray()) {
 					Json::Value::ArrayIndex b = arrnames.size();
-					for (int k = 0; k < b; k++)
+					for (Json::Value::ArrayIndex k = 0; k < b; k++)
 					{
 						auto itmname = arrnames[k];
 						auto vname = itmname.asString();

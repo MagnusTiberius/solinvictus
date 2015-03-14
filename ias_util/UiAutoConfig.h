@@ -17,6 +17,7 @@ public:
 	DWORD GetJsonValue(std::string cmdkey, std::string arr[]);
 	DWORD VerifyAddressName(char* dllfile, char* procnames);
 	DWORD GetJsonOneValue(std::string cmdkey, std::wstring *ws);
+	DWORD UiAutoConfig::VerifyFunctionDefinition(char* dllfile, int actiontotake);
 private:
 	Json::Value root;
 	UIAuto uiauto;

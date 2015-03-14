@@ -28,6 +28,7 @@ public:
 
 	static void CALLBACK PrintWindowName(HWND hwnd, LPARAM callerText);
 	static BOOL CALLBACK ClickButton(HWND hwnd, LPARAM buttonText);
+	static BOOL CALLBACK SetCheckButton(HWND hwnd, LPARAM buttonText);
 	void selectMenuItem(HWND hwnd, HMENU menu, LPARAM menuText);
 	void typeKey(short virtualKey);
 	void typeKeys(LPARAM stringToType);

@@ -31,6 +31,19 @@ BOOL CALLBACK UIAuto::ClickButton(HWND hwnd, LPARAM buttonText)
 	return true;
 }
 
+BOOL CALLBACK UIAuto::SetCheckButton(HWND hwnd, LPARAM buttonText)
+{
+	LPWSTR windowText = new TCHAR[2048];
+	GetWindowText(hwnd, windowText, 2048);
+	//cout << "WINDOWTEXT:" << windowText << endl;
+	if (_tcsstr(windowText, LPCTSTR(buttonText)) != NULL)
+	{
+		SendMessage(hwnd, BM_SETCHECK, 0, 0);
+		wcout << "RADION BUTTON CHECKED:" << windowText << endl;
+	}
+	return true;
+}
+
 void UIAuto::selectMenuItem(HWND hwnd, HMENU menu, LPARAM menuText)
 {
 	int menuCount = GetMenuItemCount(menu);
