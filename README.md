@@ -22,3 +22,9 @@ A: JsonCpp provided the features I needed to implement a way of storing meta-dat
 Q: File version check?
 
 A: I needed to pull file version for validating against the current/previous release.
+
+==================
+
+LoadLibrary() - verify dll file can be loaded into memory.
+
+GetProcAddress() - verify dll file contain the function names.
