@@ -1,23 +1,17 @@
-// lantern_rock_install.cpp : Defines the entry point for the console application.
-//
-#pragma once
-#include "stdafx.h"
-#include "UIAuto.h"
-#include "SetupRepo.h"
-#include "CommandMsiExec.h"
-#include "UiAutoConfig.h"
-#include "WinReg.h"
-#include "IasVersion.h"
+#include "MsiConfig.h"
 
-#if defined(_WIN64)
-const int PLATFORM = 64;
-#else
-const int PLATFORM = 86;
-#endif
 
-UIAuto uiauto;
+MsiConfig::MsiConfig()
+{
+}
 
-void UiAutoInstallValidate()
+
+MsiConfig::~MsiConfig()
+{
+}
+
+
+void MsiConfig::UiAutoInstallValidate()
 {
 	HWND installDialog = uiauto.findWindow((LPARAM)TEXT("User Account Control"));
 	if (installDialog != NULL)
@@ -37,7 +31,7 @@ void UiAutoInstallValidate()
 
 }
 
-void UiAutoUninstallValidate()
+void MsiConfig::UiAutoUninstallValidate()
 {
 	HWND installItDialog = uiauto.findWindow((LPARAM)TEXT("Windows Installer"));
 	if (installItDialog != NULL)
@@ -72,19 +66,19 @@ void UiAutoUninstallValidate()
 	}
 }
 
-void installValidate(UiAutoConfig uiautoconfig, const char* cmdparam)
+void MsiConfig::installValidate(UiAutoConfig uiautoconfig, const char* cmdparam)
 {
 	uiautoconfig.execute(cmdparam);
 	UiAutoInstallValidate();
 }
 
-void uninstallValidate(UiAutoConfig uiautoconfig, const char* cmdparam)
+void MsiConfig::uninstallValidate(UiAutoConfig uiautoconfig, const char* cmdparam)
 {
 	uiautoconfig.execute(cmdparam);
 	UiAutoUninstallValidate();
 }
 
-void verifyFile(IasVersion iasversion, const wchar_t *strname)
+void MsiConfig::verifyFile(IasVersion iasversion, const wchar_t *strname)
 {
 	wchar_t fileVersion[1024];
 	wchar_t productVersion[1024];
@@ -103,7 +97,7 @@ void verifyFile(IasVersion iasversion, const wchar_t *strname)
 
 }
 
-void verifyFiles(UiAutoConfig uiautoconfig, IasVersion iasversion, std::string name)
+void MsiConfig::verifyFiles(UiAutoConfig uiautoconfig, IasVersion iasversion, std::string name)
 {
 	std::string arr1[1024];
 	int cnt = uiautoconfig.GetJsonValue(name, arr1);
@@ -114,7 +108,7 @@ void verifyFiles(UiAutoConfig uiautoconfig, IasVersion iasversion, std::string n
 	}
 }
 
-void verifyRegistry(UiAutoConfig uiautoconfig, std::string name, const wchar_t* searchfor)
+void MsiConfig::verifyRegistry(UiAutoConfig uiautoconfig, std::string name, const wchar_t* searchfor)
 {
 	std::string arr1[1024];
 	int cnt = uiautoconfig.GetJsonValue(name, arr1);
@@ -130,7 +124,7 @@ void verifyRegistry(UiAutoConfig uiautoconfig, std::string name, const wchar_t* 
 		int foundcnt = 0;
 		for (int i = 0; i < sz; i++) {
 			std::wstring s = elements[i];
-			size_t diff=0;
+			size_t diff = 0;
 			diff = wcscmp(s.c_str(), searchfor);
 			if (diff == 0) {
 				foundcnt++;
@@ -146,13 +140,106 @@ void verifyRegistry(UiAutoConfig uiautoconfig, std::string name, const wchar_t* 
 
 }
 
-int _tmain2(int argc, _TCHAR* argv[])
-{
-	UiAutoConfig uiautoconfig(L"LanternRockInstallConfig.json");
-	IasVersion iasversion;
 
-	std::wstring prdid;
-	int cnt = uiautoconfig.GetJsonOneValue("PRODUCT_ID", &prdid);
+int MsiConfig::RunCurrentAgainstPrevious(wchar_t* current, wchar_t* previous)
+{
+	return 0;
+}
+
+
+int MsiConfig::Install(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId)
+{
+	uiautoconfig.LoadConfig(configFilename);
+	cnt = uiautoconfig.GetJsonOneValue(productId, &prdid);
+
+	installValidate(uiautoconfig, installName);
+	std::wcout << "Install done." << std::endl;
+	std::wcout << "Verifying dll file and executables:" << std::endl;
+	uiautoconfig.validateFiles(filesInstallExe);
+	uiautoconfig.validateFiles(filesInstall);
+	verifyRegistry(uiautoconfig, registryCompany, prdid.c_str());
+
+	verifyFiles(uiautoconfig, iasversion, filesInstallExe);
+	verifyFiles(uiautoconfig, iasversion, filesInstall);
+
+	std::wcout << "Verifying dll file using loadlibrary and getprocaddress:" << std::endl;
+	uiautoconfig.VerifyAddressName(filesInstall, addressNames);
+
+	uiautoconfig.VerifyFunctionDefinition(filesInstall, 1);
+	uiautoconfig.VerifyFunctionDefinition(filesInstall, 2);
+	uiautoconfig.VerifyFunctionDefinition(filesInstall, 3);
+	uiautoconfig.VerifyFunctionDefinition(filesInstall, 4);
+
+	return 0;
+
+}
+
+int MsiConfig::Uninstall(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId)
+{
+	uiautoconfig.LoadConfig(configFilename);
+	cnt = uiautoconfig.GetJsonOneValue(productId, &prdid);
+
+	std::wcout << "Starting uninstall." << std::endl;
+	uninstallValidate(uiautoconfig, uninstallName);
+	std::wcout << "Uninstall done." << std::endl;
+	std::wcout << "Verifying dll file and executables:" << std::endl;
+	uiautoconfig.validateFiles(filesInstallExe);
+	uiautoconfig.validateFiles(filesInstall);
+	verifyRegistry(uiautoconfig, registryCompany, prdid.c_str());
+
+	return 0;
+}
+
+
+int MsiConfig::Install(lpConfigSetting cs)
+{
+	uiautoconfig.LoadConfig(cs->configFilename);
+	cnt = uiautoconfig.GetJsonOneValue(cs->productId, &prdid);
+
+	installValidate(uiautoconfig, cs->installName);
+	std::wcout << "Install done." << std::endl;
+	std::wcout << "Verifying dll file and executables:" << std::endl;
+	uiautoconfig.validateFiles(cs->filesInstallExe);
+	uiautoconfig.validateFiles(cs->filesInstall);
+	verifyRegistry(uiautoconfig, cs->registryCompany, prdid.c_str());
+
+	verifyFiles(uiautoconfig, iasversion, cs->filesInstallExe);
+	verifyFiles(uiautoconfig, iasversion, cs->filesInstall);
+
+	std::wcout << "Verifying dll file using loadlibrary and getprocaddress:" << std::endl;
+	uiautoconfig.VerifyAddressName(cs->filesInstall, cs->addressNames);
+
+	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 1);
+	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 2);
+	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 3);
+	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 4);
+
+	return 0;
+}
+
+int MsiConfig::Uninstall(lpConfigSetting cs)
+{
+	uiautoconfig.LoadConfig(cs->configFilename);
+	cnt = uiautoconfig.GetJsonOneValue(cs->productId, &prdid);
+
+	std::wcout << "Starting uninstall." << std::endl;
+	uninstallValidate(uiautoconfig, cs->uninstallName);
+	std::wcout << "Uninstall done." << std::endl;
+	std::wcout << "Verifying dll file and executables:" << std::endl;
+	uiautoconfig.validateFiles(cs->filesInstallExe);
+	uiautoconfig.validateFiles(cs->filesInstall);
+	verifyRegistry(uiautoconfig, cs->registryCompany, prdid.c_str());
+
+	return 0;
+}
+
+
+int MsiConfig::Run(wchar_t* jsonfile)
+{
+	configFileCurrentVer = jsonfile;
+	uiautoconfig.LoadConfig(jsonfile);
+
+	cnt = uiautoconfig.GetJsonOneValue("PRODUCT_ID", &prdid);
 
 	if (PLATFORM == 86) {
 
@@ -278,4 +365,3 @@ int _tmain2(int argc, _TCHAR* argv[])
 
 	return 0;
 }
-

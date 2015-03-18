@@ -18,6 +18,8 @@ public:
 	DWORD VerifyAddressName(char* dllfile, char* procnames);
 	DWORD GetJsonOneValue(std::string cmdkey, std::wstring *ws);
 	DWORD UiAutoConfig::VerifyFunctionDefinition(char* dllfile, int actiontotake);
+	DWORD LoadConfig(wchar_t* jsonfile);
+
 private:
 	Json::Value root;
 	UIAuto uiauto;

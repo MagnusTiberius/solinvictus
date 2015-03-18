@@ -7,13 +7,7 @@ UiAutoConfig::UiAutoConfig()
 
 UiAutoConfig::UiAutoConfig(wchar_t* jsonfile)
 {
-	json_config = jsonconfig.ReadFileIntoStringA(jsonfile);
-	const std::string jcfg = std::string(json_config);
-
-	Json::Reader reader;
-	std::ifstream test(jsonfile, std::ifstream::binary);
-	reader.parse(test, root, false);
-
+	LoadConfig(jsonfile);
 }
 
 UiAutoConfig::~UiAutoConfig()
@@ -163,4 +157,15 @@ DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
 	std::wcout << "Verification of library and proc addresses completed. " << std::endl;
 	return ret;
 
+}
+
+DWORD UiAutoConfig::LoadConfig(wchar_t* jsonfile)
+{
+	json_config = jsonconfig.ReadFileIntoStringA(jsonfile);
+	const std::string jcfg = std::string(json_config);
+
+	Json::Reader reader;
+	std::ifstream test(jsonfile, std::ifstream::binary);
+	reader.parse(test, root, false);
+	return 0;
 }

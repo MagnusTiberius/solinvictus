@@ -5,14 +5,27 @@
 
 #pragma once
 
+#define _CRT_SECURE_NO_DEPRECATE
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
-
+#include <windows.h>
 
 /*
+
+#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS      // some CString constructors will be explicit
+#include <atlbase.h>
+#include <atlstr.h>
+
+#include <vector>
+#include <list>
+
 #define _CRT_SECURE_NO_DEPRECATE
+
+#include "targetver.h"
+
+#include <stdio.h>
 
 #ifndef VC_EXTRALEAN
 #define VC_EXTRALEAN            // Exclude rarely-used stuff from Windows headers
@@ -27,10 +40,6 @@
 
 #include <vector>
 #include <list>
-*/
-
 
 using namespace std;
-
-
-// TODO: reference additional headers your program requires here
+*/

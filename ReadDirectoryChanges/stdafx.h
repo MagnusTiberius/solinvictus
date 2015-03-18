@@ -5,14 +5,11 @@
 
 #pragma once
 
+#define _CRT_SECURE_NO_DEPRECATE
+
 #include "targetver.h"
 
 #include <stdio.h>
-#include <tchar.h>
-
-
-/*
-#define _CRT_SECURE_NO_DEPRECATE
 
 #ifndef VC_EXTRALEAN
 #define VC_EXTRALEAN            // Exclude rarely-used stuff from Windows headers
@@ -27,10 +24,5 @@
 
 #include <vector>
 #include <list>
-*/
-
 
 using namespace std;
-
-
-// TODO: reference additional headers your program requires here
