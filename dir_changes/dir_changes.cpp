@@ -52,7 +52,7 @@ int _tmain(int argc, TCHAR* argv[], TCHAR* envp[])
 {
 
 	DirChange dirChange;
-	dirChange.AddDirectory(_T("C:\\Users\\bbgonzaX\\AppData\\Local\\Intel Telemetry\\deadbeef\\deadbeef-dead-beef-dead-beefdeadbeef\\"), false, DirChange::dwNotificationFlags);;
+	dirChange.AddDirectory(_T("c:\\temp\\"), false, DirChange::dwNotificationFlags);;
 	dirChange.Run();
 
 	return EXIT_SUCCESS;
