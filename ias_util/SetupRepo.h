@@ -11,8 +11,6 @@
 #include "..\jsoncpp\include\json\json.h"
 #include "JsonConfig.h"
 
-#define IASQA			 "Intel IAS QA"
-#define WIASQA			L"Intel IAS QA"
 #define LOCALAPPDATA	 "LOCALAPPDATA"
 #define WLOCALAPPDATA	L"LOCALAPPDATA"
 

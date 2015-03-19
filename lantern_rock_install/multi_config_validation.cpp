@@ -35,9 +35,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	MsiConfig config1;
 
-	//DirMgr dirMgr;
-	//dirMgr.GetDirChange(L"C:\\Users\\bbgonzaX\\AppData\\Local\\Intel Telemetry\\deadbeef\\deadbeef-dead-beef-dead-beefdeadbeef\\");
-
 
 	config1.Uninstall(&config_2_0_48);
 	config1.Uninstall(&config_2_0_52);
