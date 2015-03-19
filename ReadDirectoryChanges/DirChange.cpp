@@ -21,7 +21,6 @@ void DirChange::AddDirectory(LPCTSTR szDirectory, BOOL bWatchSubtree, DWORD dwNo
 int DirChange::Run()
 {
 
-
 	HANDLE hStdIn = ::GetStdHandle(STD_INPUT_HANDLE);
 	const HANDLE handles[] = { hStdIn, changes.GetWaitHandle() };
 
