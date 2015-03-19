@@ -21,8 +21,6 @@ void DirChange::AddDirectory(LPCTSTR szDirectory, BOOL bWatchSubtree, DWORD dwNo
 int DirChange::Run()
 {
 
-	//changes.AddDirectory(_tgetenv(_T("USERPROFILE")), true, dwNotificationFlags);
-	//changes.AddDirectory(_T("C:\\Users\\bbgonzaX\\AppData\\Local\\Intel Telemetry\\deadbeef\\deadbeef-dead-beef-dead-beefdeadbeef\\"), false, dwNotificationFlags);
 
 	HANDLE hStdIn = ::GetStdHandle(STD_INPUT_HANDLE);
 	const HANDLE handles[] = { hStdIn, changes.GetWaitHandle() };
