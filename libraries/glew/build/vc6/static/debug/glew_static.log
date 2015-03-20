@@ -1,0 +1,14 @@
+﻿Build started 3/20/2015 3:35:36 PM.
+     1>Project "C:\Users\bbgonzaX\AppData\Local\opengl_samples\Libraries\glew\build\vc6\glew_static.vcxproj" on node 3 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1361,5): warning MSB8012: TargetPath(C:\Users\bbgonzaX\AppData\Local\opengl_samples\Libraries\glew\build\vc6\.\../../lib\glew_static.lib) does not match the Library's OutputFile property value (C:\Users\bbgonzaX\AppData\Local\opengl_samples\Libraries\glew\lib\glew32sd.lib). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(1363,5): warning MSB8012: TargetName(glew_static) does not match the Library's OutputFile property value (glew32sd). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Lib.OutputFile).
+     1>Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"../../lib/glew32sd.lib" /NOLOGO .\static/debug\glew.res
+         .\static/debug\glew.obj
+     1>LINK : warning LNK4068: /MACHINE not specified; defaulting to X86
+         glew_static.vcxproj -> C:\Users\bbgonzaX\AppData\Local\opengl_samples\Libraries\glew\build\vc6\.\../../lib\glew_static.lib
+     1>Done Building Project "C:\Users\bbgonzaX\AppData\Local\opengl_samples\Libraries\glew\build\vc6\glew_static.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.09
