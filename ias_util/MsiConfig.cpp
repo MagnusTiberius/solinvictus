@@ -146,6 +146,18 @@ int MsiConfig::RunCurrentAgainstPrevious(wchar_t* current, wchar_t* previous)
 	return 0;
 }
 
+BOOL MsiConfig::ValidateFileContent(char* szFileName, size_t siz)
+{
+	JsonConfig jsonconfig;
+	std::wstring wstr = std::wstring(szFileName, szFileName + strlen(szFileName));
+	std::string json_config = jsonconfig.ReadFileIntoStringA(wstr.c_str());
+	Json::Value root;
+	Json::Reader reader;
+	bool res = reader.parse(json_config.c_str(), root, false);
+	return res;
+}
+
+
 
 int MsiConfig::Install(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId)
 {

@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "ReadDirectoryChanges.h"
+#include "SharedFile.h"
 
 class DirChange
 {
@@ -23,7 +24,11 @@ public:
 
 private:
 	CReadDirectoryChanges changes;
-
+	SharedFile m_sharedFile;
+	
+	const wchar_t* m_fileName = L"SharedFile001.txt";
+	const size_t bufsiz = 1024;
+	char buffer[1024];
 
 };
 

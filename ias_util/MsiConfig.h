@@ -32,6 +32,7 @@ public:
 	int Uninstall(lpConfigSetting cs);
 	int Install(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId);
 	int Uninstall(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId);
+	BOOL ValidateFileContent(char* szFileName, size_t siz);
 
 private:
 	void UiAutoInstallValidate();

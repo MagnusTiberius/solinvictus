@@ -4,6 +4,7 @@
 
 DirChange::DirChange()
 {
+	m_sharedFile.Init(m_fileName, buffer, bufsiz);
 }
 
 
@@ -20,6 +21,7 @@ void DirChange::AddDirectory(std::wstring szDirectory, BOOL bWatchSubtree, DWORD
 
 int DirChange::Run()
 {
+	
 
 	HANDLE hStdIn = ::GetStdHandle(STD_INPUT_HANDLE);
 	const HANDLE handles[] = { hStdIn, changes.GetWaitHandle() };
@@ -52,6 +54,8 @@ int DirChange::Run()
 			{
 				changes.Pop(dwAction, wstrFilename);
 				wprintf(L"%s %s\n", ExplainAction(dwAction), wstrFilename.c_str());
+				std::string str = std::string(wstrFilename.begin(), wstrFilename.end());
+				m_sharedFile.Write(str.c_str(), str.size());
 			}
 		}
 			break;
