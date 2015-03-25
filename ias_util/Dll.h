@@ -13,7 +13,7 @@ public:
 
 public:
 	HINSTANCE LoadDll(const wchar_t* lpszFilePath);
-	void UnloadDll();
+	BOOL UnloadDll();
 	f_funci GetDllProcAddress(const char* pszProcName);
 	void CommandApiVersion();
 	void CommandHasSystemConsentFeature();

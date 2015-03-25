@@ -53,6 +53,7 @@ DWORD IasVersion::PrintFileVersion(const TCHAR *pszFilePath, TCHAR *pszFileVersi
 	}
 
 	pbVersionInfo = new BYTE[dwSize];
+	memset(pbVersionInfo, '\0', dwSize);
 
 	if (!GetFileVersionInfo(pszFilePath, 0, dwSize, pbVersionInfo))
 	{

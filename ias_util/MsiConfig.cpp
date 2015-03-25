@@ -203,8 +203,6 @@ int MsiConfig::Install(lpConfigSetting cs)
 	uiautoconfig.validateFiles(cs->filesInstall);
 	verifyRegistry(uiautoconfig, cs->registryCompany, prdid.c_str());
 
-	verifyFiles(uiautoconfig, iasversion, cs->filesInstallExe);
-	verifyFiles(uiautoconfig, iasversion, cs->filesInstall);
 
 	std::wcout << "Verifying dll file using loadlibrary and getprocaddress:" << std::endl;
 	uiautoconfig.VerifyAddressName(cs->filesInstall, cs->addressNames);
@@ -213,6 +211,10 @@ int MsiConfig::Install(lpConfigSetting cs)
 	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 2);
 	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 3);
 	uiautoconfig.VerifyFunctionDefinition(cs->filesInstall, 4);
+
+	verifyFiles(uiautoconfig, iasversion, cs->filesInstallExe);
+	verifyFiles(uiautoconfig, iasversion, cs->filesInstall);
+
 
 	return 0;
 }

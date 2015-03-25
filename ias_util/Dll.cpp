@@ -12,12 +12,14 @@ Dll::~Dll()
 	UnloadDll();
 }
 
-void Dll::UnloadDll()
+BOOL Dll::UnloadDll()
 {
+	BOOL res = false;
 	if (dll_inst != NULL) {
-		FreeLibrary(dll_inst);
+		res = FreeLibrary(dll_inst);
 		dll_inst = NULL;
 	}
+	return res;
 }
 
 HINSTANCE Dll::LoadDll(const wchar_t* pfilepath)
