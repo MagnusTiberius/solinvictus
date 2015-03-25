@@ -113,7 +113,8 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)\imports\jsoncpp\lib\;$(SolutionDir)\lib\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>json_vc71_libmtd.lib</AdditionalDependencies>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -127,6 +128,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\imports\jsoncpp\include;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -159,10 +161,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommandMsiExec.h" />
+    <ClInclude Include="DirChange.h" />
     <ClInclude Include="Dll.h" />
     <ClInclude Include="IasVersion.h" />
     <ClInclude Include="JsonConfig.h" />
     <ClInclude Include="MsiConfig.h" />
+    <ClInclude Include="ReadDirectoryChanges.h" />
+    <ClInclude Include="ReadDirectoryChangesPrivate.h" />
     <ClInclude Include="SetupRepo.h" />
     <ClInclude Include="SocketClient.h" />
     <ClInclude Include="SocketCompletionPortServer.h" />
@@ -178,10 +183,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CommandMsiExec.cpp" />
+    <ClCompile Include="DirChange.cpp" />
     <ClCompile Include="Dll.cpp" />
     <ClCompile Include="IasVersion.cpp" />
     <ClCompile Include="JsonConfig.cpp" />
     <ClCompile Include="MsiConfig.cpp" />
+    <ClCompile Include="ReadDirectoryChanges.cpp" />
+    <ClCompile Include="ReadDirectoryChangesPrivate.cpp" />
     <ClCompile Include="SetupRepo.cpp" />
     <ClCompile Include="SocketClient.cpp" />
     <ClCompile Include="SocketCompletionPortServer.cpp" />

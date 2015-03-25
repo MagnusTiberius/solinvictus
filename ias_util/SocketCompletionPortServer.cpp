@@ -167,7 +167,7 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID CompletionPor
 	while (TRUE)
 	{
 		if (GetQueuedCompletionStatus(CompletionPort, &BytesTransferred,
-			(LPDWORD)&PerHandleData, (LPOVERLAPPED *)&PerIoData, INFINITE) == 0)
+			(PULONG_PTR)&PerHandleData, (LPOVERLAPPED *)&PerIoData, INFINITE) == 0)
 		{
 			printf("GetQueuedCompletionStatus() failed with error %d\n", GetLastError());
 			return 0;

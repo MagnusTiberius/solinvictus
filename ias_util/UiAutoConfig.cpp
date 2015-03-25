@@ -144,7 +144,13 @@ DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
 
 						}
 					}
-					dll.UnloadDll();
+					BOOL isOK = dll.UnloadDll();
+					if (!isOK) {
+						std::wcout << "Error in UnloadDll() : " << std::endl;
+					}
+					else {
+						std::wcout << "Success in UnloadDll() : " << std::endl;
+					}
 					inst = NULL;
 				}
 			}
