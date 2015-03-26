@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\windows">
+      <UniqueIdentifier>{2f9b532c-178d-43b7-b6c1-77454000bb38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\windows\ssl">
+      <UniqueIdentifier>{2f611b50-75fe-4d1e-af8f-8c7061af278c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\windows">
+      <UniqueIdentifier>{732eb339-2eac-45b9-8464-a8ca766e7059}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\windows\ssl">
+      <UniqueIdentifier>{dd9dd24e-c862-4c51-9028-069e4b8ae83b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\webserver">
+      <UniqueIdentifier>{ae2f5022-f2d9-4409-abdb-984bbcff01d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\webserver">
+      <UniqueIdentifier>{bf03f752-6653-4558-bbdc-913ab77287e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\webserver\http">
+      <UniqueIdentifier>{1470d01f-36f0-44ae-8ed5-1438a30029df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\webserver\http">
+      <UniqueIdentifier>{c988519e-1478-477e-9312-e3c9b0742670}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\cxx">
+      <UniqueIdentifier>{eb70da29-6dcf-40ce-8802-5de28bc9968c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\address.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\error.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\filter.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\flashpolicy.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\global.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\heapbuffer.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\nvhash.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pipe.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\refcount-dbg.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\stream.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\streamgraph.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\client.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\compat.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\event.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\eventpump.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\fdstream.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\file.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\server.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\sslclient.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\sync.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\thread.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\timer.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\udp.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\windows_global.c">
+      <Filter>Source Files\windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\ssl\clientssl.c">
+      <Filter>Source Files\windows\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\ssl\serverssl.c">
+      <Filter>Source Files\windows\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\windows\ssl\ssl.c">
+      <Filter>Source Files\windows\ssl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\mimetypes.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\multipart.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\request.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\sessions.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\upload.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\webserver.c">
+      <Filter>Source Files\webserver</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\http\http-client.c">
+      <Filter>Source Files\webserver\http</Filter>
+    </ClCompile>
+    <ClCompile Include="src\webserver\http\http-parse.c">
+      <Filter>Source Files\webserver\http</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_address.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_client.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_error.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_event.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_eventpump.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_fdstream.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_file.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_filter.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_flashpolicy.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_pipe.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_pump.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_server.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_stream.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_sync.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_thread.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_timer.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_udp.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="src\cxx\cxx_webserver.cc">
+      <Filter>Source Files\cxx</Filter>
+    </ClCompile>
+    <ClCompile Include="deps\multipart-parser\multipart_parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="deps\http-parser\http_parser.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\address.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\heapbuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\heapbuffer-cxx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\list.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\nvhash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pump.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\refcount.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\refcount-dbg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\streamgraph.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\common.h">
+      <Filter>Header Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\compat.h">
+      <Filter>Header Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\fdstream.h">
+      <Filter>Header Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\sslclient.h">
+      <Filter>Header Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\typeof.h">
+      <Filter>Header Files\windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\ssl\clientssl.h">
+      <Filter>Header Files\windows\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\ssl\serverssl.h">
+      <Filter>Header Files\windows\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\windows\ssl\ssl.h">
+      <Filter>Header Files\windows\ssl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\webserver\common.h">
+      <Filter>Header Files\webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="src\webserver\multipart.h">
+      <Filter>Header Files\webserver</Filter>
+    </ClInclude>
+    <ClInclude Include="src\webserver\http\http.h">
+      <Filter>Header Files\webserver\http</Filter>
+    </ClInclude>
+    <ClInclude Include="deps\multipart-parser\multipart_parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="deps\http-parser\http_parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

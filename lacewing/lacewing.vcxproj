@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F393CF2F-7F7D-4B8C-A113-C063B6E67401}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>lacewing</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)\lib\$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINSOCK_DEPRECATED_NO_WARNINGS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="deps\http-parser\http_parser.c" />
+    <ClCompile Include="deps\multipart-parser\multipart_parser.c" />
+    <ClCompile Include="src\address.c" />
+    <ClCompile Include="src\cxx\cxx_address.cc" />
+    <ClCompile Include="src\cxx\cxx_client.cc" />
+    <ClCompile Include="src\cxx\cxx_error.cc" />
+    <ClCompile Include="src\cxx\cxx_event.cc" />
+    <ClCompile Include="src\cxx\cxx_eventpump.cc" />
+    <ClCompile Include="src\cxx\cxx_fdstream.cc" />
+    <ClCompile Include="src\cxx\cxx_file.cc" />
+    <ClCompile Include="src\cxx\cxx_filter.cc" />
+    <ClCompile Include="src\cxx\cxx_flashpolicy.cc" />
+    <ClCompile Include="src\cxx\cxx_pipe.cc" />
+    <ClCompile Include="src\cxx\cxx_pump.cc" />
+    <ClCompile Include="src\cxx\cxx_server.cc" />
+    <ClCompile Include="src\cxx\cxx_stream.cc" />
+    <ClCompile Include="src\cxx\cxx_sync.cc" />
+    <ClCompile Include="src\cxx\cxx_thread.cc" />
+    <ClCompile Include="src\cxx\cxx_timer.cc" />
+    <ClCompile Include="src\cxx\cxx_udp.cc" />
+    <ClCompile Include="src\cxx\cxx_webserver.cc" />
+    <ClCompile Include="src\error.c" />
+    <ClCompile Include="src\filter.c" />
+    <ClCompile Include="src\flashpolicy.c" />
+    <ClCompile Include="src\global.c" />
+    <ClCompile Include="src\heapbuffer.c" />
+    <ClCompile Include="src\list.c" />
+    <ClCompile Include="src\nvhash.c" />
+    <ClCompile Include="src\pipe.c" />
+    <ClCompile Include="src\pump.c" />
+    <ClCompile Include="src\refcount-dbg.c" />
+    <ClCompile Include="src\stream.c" />
+    <ClCompile Include="src\streamgraph.c" />
+    <ClCompile Include="src\util.c" />
+    <ClCompile Include="src\webserver\http\http-client.c" />
+    <ClCompile Include="src\webserver\http\http-parse.c" />
+    <ClCompile Include="src\webserver\mimetypes.c" />
+    <ClCompile Include="src\webserver\multipart.c" />
+    <ClCompile Include="src\webserver\request.c" />
+    <ClCompile Include="src\webserver\sessions.c" />
+    <ClCompile Include="src\webserver\upload.c" />
+    <ClCompile Include="src\webserver\webserver.c" />
+    <ClCompile Include="src\windows\client.c" />
+    <ClCompile Include="src\windows\compat.c" />
+    <ClCompile Include="src\windows\event.c" />
+    <ClCompile Include="src\windows\eventpump.c" />
+    <ClCompile Include="src\windows\fdstream.c" />
+    <ClCompile Include="src\windows\file.c" />
+    <ClCompile Include="src\windows\ssl\clientssl.c" />
+    <ClCompile Include="src\windows\ssl\serverssl.c" />
+    <ClCompile Include="src\windows\ssl\ssl.c" />
+    <ClCompile Include="src\windows\windows_global.c" />
+    <ClCompile Include="src\windows\server.c" />
+    <ClCompile Include="src\windows\sslclient.c" />
+    <ClCompile Include="src\windows\sync.c" />
+    <ClCompile Include="src\windows\thread.c" />
+    <ClCompile Include="src\windows\timer.c" />
+    <ClCompile Include="src\windows\udp.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="deps\http-parser\http_parser.h" />
+    <ClInclude Include="deps\multipart-parser\multipart_parser.h" />
+    <ClInclude Include="src\address.h" />
+    <ClInclude Include="src\common.h" />
+    <ClInclude Include="src\heapbuffer-cxx.h" />
+    <ClInclude Include="src\heapbuffer.h" />
+    <ClInclude Include="src\list.h" />
+    <ClInclude Include="src\nvhash.h" />
+    <ClInclude Include="src\pump.h" />
+    <ClInclude Include="src\refcount-dbg.h" />
+    <ClInclude Include="src\refcount.h" />
+    <ClInclude Include="src\stream.h" />
+    <ClInclude Include="src\streamgraph.h" />
+    <ClInclude Include="src\webserver\common.h" />
+    <ClInclude Include="src\webserver\http\http.h" />
+    <ClInclude Include="src\webserver\multipart.h" />
+    <ClInclude Include="src\windows\common.h" />
+    <ClInclude Include="src\windows\compat.h" />
+    <ClInclude Include="src\windows\fdstream.h" />
+    <ClInclude Include="src\windows\sslclient.h" />
+    <ClInclude Include="src\windows\ssl\clientssl.h" />
+    <ClInclude Include="src\windows\ssl\serverssl.h" />
+    <ClInclude Include="src\windows\ssl\ssl.h" />
+    <ClInclude Include="src\windows\typeof.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
