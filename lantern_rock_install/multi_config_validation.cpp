@@ -28,6 +28,7 @@ void ConfigWorkerThread()
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+
 	DWORD dwId;
 	DWORD dwId2;
 

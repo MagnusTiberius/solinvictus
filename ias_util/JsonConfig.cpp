@@ -10,9 +10,15 @@ JsonConfig::~JsonConfig()
 {
 }
 
+JsonConfig::JsonConfig(const std::wstring& filepath)
+{
+	wszFileName = std::wstring(filepath.begin(), filepath.end());
+}
 
 std::wstring JsonConfig::ReadFileIntoStringW(const std::wstring& filepath)
 {
+	wszFileName = std::wstring(filepath.begin(), filepath.end());
+
 	std::wstring wstr;
 	std::ifstream file(filepath.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
 	size_t size = (size_t)file.tellg();
@@ -27,6 +33,8 @@ std::wstring JsonConfig::ReadFileIntoStringW(const std::wstring& filepath)
 
 std::string JsonConfig::ReadFileIntoStringA(const std::wstring& filepath)
 {
+	wszFileName = std::wstring(filepath.begin(), filepath.end());
+
 	std::string str;
 	std::ifstream file(filepath.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
 	size_t size = (size_t)file.tellg();
@@ -98,4 +106,31 @@ const wchar_t *JsonConfig::GetWC(const char *c)
 	mbstowcs_s(&res, wc, c, cSize);
 
 	return wc;
+}
+
+BOOL JsonConfig::ParseFile(const std::wstring& filepath, Json::Value *root)
+{
+	wszFileName = std::wstring(filepath.begin(), filepath.end());
+
+	std::string str = ReadFileIntoStringA(filepath);
+	Json::Reader reader;
+	bool res = reader.parse(str.c_str(), *root, false);
+	return res;
+}
+
+BOOL JsonConfig::Parse(Json::Value *root)
+{
+	std::string str = ReadFileIntoStringA(wszFileName);
+	Json::Reader reader;
+	bool res = reader.parse(str.c_str(), *root, false);
+	m_root = *root;
+	return res;
+}
+
+BOOL JsonConfig::Parse()
+{
+	std::string str = ReadFileIntoStringA(wszFileName);
+	Json::Reader reader;
+	bool res = reader.parse(str.c_str(), m_root, false);
+	return res;
 }
