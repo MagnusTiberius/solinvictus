@@ -78,6 +78,9 @@
     <ClInclude Include="DirChange.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SharedFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JsonConfig.cpp">
@@ -132,6 +135,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DirChange.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SharedFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

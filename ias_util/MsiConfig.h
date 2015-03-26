@@ -26,12 +26,8 @@ public:
 	MsiConfig();
 	~MsiConfig();
 
-
-
 	int Install(lpConfigSetting configSetting);
 	int Uninstall(lpConfigSetting cs);
-	int Install(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId);
-	int Uninstall(wchar_t* configFilename, char* installName, char* filesInstall, char* filesInstallExe, char* uninstallName, char* registryCompany, char* addressNames, char* productId);
 	BOOL ValidateFileContent(char* szFileName, size_t siz);
 
 private:
@@ -42,7 +38,6 @@ private:
 	void verifyFile(IasVersion iasversion, const wchar_t *strname);
 	void verifyFiles(UiAutoConfig uiautoconfig, IasVersion iasversion, std::string name);
 	void verifyRegistry(UiAutoConfig uiautoconfig, std::string name, const wchar_t* searchfor);
-	int Run(wchar_t* jsonfile);
 	int RunCurrentAgainstPrevious(wchar_t* current, wchar_t* previous);
 
 

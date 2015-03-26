@@ -169,6 +169,7 @@
     <ClInclude Include="ReadDirectoryChanges.h" />
     <ClInclude Include="ReadDirectoryChangesPrivate.h" />
     <ClInclude Include="SetupRepo.h" />
+    <ClInclude Include="SharedFile.h" />
     <ClInclude Include="SocketClient.h" />
     <ClInclude Include="SocketCompletionPortServer.h" />
     <ClInclude Include="SocketEventSelectServer.h" />
@@ -191,6 +192,7 @@
     <ClCompile Include="ReadDirectoryChanges.cpp" />
     <ClCompile Include="ReadDirectoryChangesPrivate.cpp" />
     <ClCompile Include="SetupRepo.cpp" />
+    <ClCompile Include="SharedFile.cpp" />
     <ClCompile Include="SocketClient.cpp" />
     <ClCompile Include="SocketCompletionPortServer.cpp" />
     <ClCompile Include="SocketEventSelectServer.cpp" />

@@ -114,16 +114,6 @@ int ConfigWorker::do_it(ConfigSetting *config_2_0_48, ConfigSetting *config_2_0_
 	//config1.Uninstall(config_2_0_52);
 	//config1.Uninstall(config_2_0_54);
 
-	if (false) {
-		config1.Install(L"LanternRockInstallConfig.json", "MSIEXEC_INSTALL_WIN32_DEBUG",
-			"FILES_INSTALL_X86", "FILES_INSTALL_EXE_X86", "MSIEXEC_UNINSTALL_WIN32_DEBUG",
-			"REGISTRY_COMPANY", "DLL_PROC_ADDRESS_NAMES", "PRODUCT_ID");
-
-		config1.Uninstall(L"LanternRockInstallConfig.json", "MSIEXEC_INSTALL_WIN32_DEBUG",
-			"FILES_INSTALL_X86", "FILES_INSTALL_EXE_X86", "MSIEXEC_UNINSTALL_WIN32_DEBUG",
-			"REGISTRY_COMPANY", "DLL_PROC_ADDRESS_NAMES", "PRODUCT_ID");
-	}
-
 	return 0;
 
 }
