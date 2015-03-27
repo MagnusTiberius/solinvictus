@@ -14,10 +14,12 @@ public:
 	SocketSelectServer();
 	~SocketSelectServer();
 
-private:
+protected:
 	typedef struct _SOCKET_INFORMATION {
 		CHAR Buffer[DATA_BUFSIZE];
+		CHAR BufferOut[DATA_BUFSIZE];
 		WSABUF DataBuf;
+		WSABUF DataBufOut;
 		SOCKET Socket;
 		OVERLAPPED Overlapped;
 		DWORD BytesSEND;
@@ -37,6 +39,7 @@ private:
 
 public:
 	int Init(u_short portnum);
+	virtual void Request(LPSOCKET_INFORMATION pSocketInfo);
 
 private:
 	BOOL CreateSocketInformation(SOCKET s);

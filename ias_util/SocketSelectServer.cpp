@@ -92,11 +92,29 @@ int SocketSelectServer::Init(u_short portnum)
 		// Set Read and Write notification for each socket based on the
 		// current state the buffer.  If there is data remaining in the
 		// buffer then set the Write set otherwise the Read set
+
 		for (i = 0; i < TotalSockets; i++)
-			if (SocketArray[i]->BytesRECV > SocketArray[i]->BytesSEND)
+			if (SocketArray[i]->BytesSEND > 0) 
+			{
 				FD_SET(SocketArray[i]->Socket, &WriteSet);
-			else
+			}
+			else 
+			{
 				FD_SET(SocketArray[i]->Socket, &ReadSet);
+			}
+		/*
+		for (i = 0; i < TotalSockets; i++)
+		{
+			if (SocketArray[i]->BytesRECV > 0)
+			{
+				FD_SET(SocketArray[i]->Socket, &ReadSet);
+			}
+			if (SocketArray[i]->BytesSEND > 0)
+			{
+				FD_SET(SocketArray[i]->Socket, &WriteSet);
+			}
+		}
+		*/
 
 		if ((Total = select(0, &ReadSet, &WriteSet, NULL, NULL)) == SOCKET_ERROR)
 		{
@@ -181,6 +199,10 @@ int SocketSelectServer::Init(u_short portnum)
 						FreeSocketInformation(i);
 						continue;
 					}
+					else
+					{
+						Request(SocketInfo);
+					}
 				}
 			}
 
@@ -190,10 +212,12 @@ int SocketSelectServer::Init(u_short portnum)
 			{
 				Total--;
 
-				SocketInfo->DataBuf.buf = SocketInfo->Buffer + SocketInfo->BytesSEND;
-				SocketInfo->DataBuf.len = SocketInfo->BytesRECV - SocketInfo->BytesSEND;
+				//SocketInfo->DataBufOut.buf = SocketInfo->BufferOut + SocketInfo->BytesSEND;
+				//SocketInfo->DataBufOut.len = SocketInfo->BytesRECV - SocketInfo->BytesSEND;
+				SocketInfo->DataBufOut.buf = SocketInfo->BufferOut;
+				SocketInfo->DataBufOut.len = strlen(SocketInfo->BufferOut);
 
-				if (WSASend(SocketInfo->Socket, &(SocketInfo->DataBuf), 1, &SendBytes, 0, NULL, NULL) == SOCKET_ERROR)
+				if (WSASend(SocketInfo->Socket, &(SocketInfo->DataBufOut), 1, &SendBytes, 0, NULL, NULL) == SOCKET_ERROR)
 				{
 					if (WSAGetLastError() != WSAEWOULDBLOCK)
 					{
@@ -207,18 +231,42 @@ int SocketSelectServer::Init(u_short portnum)
 				}
 				else
 				{
-					SocketInfo->BytesSEND += SendBytes;
+					printf("Sent:OK\n%s\n", SocketInfo->BufferOut);
+					SocketInfo->BytesSEND -= SendBytes;
 
-					if (SocketInfo->BytesSEND == SocketInfo->BytesRECV)
-					{
-						SocketInfo->BytesSEND = 0;
-						SocketInfo->BytesRECV = 0;
-					}
+					//if (SocketInfo->BytesSEND == SocketInfo->BytesRECV)
+					//{
+					//	SocketInfo->BytesSEND = 0;
+					//	SocketInfo->BytesRECV = 0;
+					//}
 				}
 			}
 		}
 	}
 }
+
+void SocketSelectServer::Request(LPSOCKET_INFORMATION pSocketInfo)
+{
+	//printf("Recv:\n%s\n", pSocketInfo->DataBuf.buf);
+
+	//pSocketInfo->BufferOut;
+
+	//memset(pSocketInfo->BufferOut, '\0', DATA_BUFSIZE);
+	//const char* body = "<html><h1>KLARIS WEB SERVER IS UP</h1><br><hr></html>\n";
+	//int bodylen = strlen(body);
+
+
+	//char content[DATA_BUFSIZE];
+	//memset(content, '\0', DATA_BUFSIZE);
+	//sprintf_s(content, DATA_BUFSIZE, "HTTP/1.0 200 OK\nDate: Fri, 31 Dec 1999 23:59:59 GMT\nContent-Type: text/html\nContent-Length: %d\n\n%s", bodylen, body);
+
+	//sprintf_s(pSocketInfo->BufferOut, DATA_BUFSIZE, "%s", content);
+	//pSocketInfo->BytesSEND = strlen(pSocketInfo->BufferOut);
+
+}
+
+
+
 
 BOOL SocketSelectServer::CreateSocketInformation(SOCKET s)
 {
