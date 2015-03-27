@@ -2,13 +2,13 @@
 //
 
 #include "stdafx.h"
-#include "HttpServer.h"
+#include "HttpKlaris.h"
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	HttpServer httpserver;
+	HttpKlaris httpserver;
 
 	httpserver.Init(9090);
 

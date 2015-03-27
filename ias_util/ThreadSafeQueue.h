@@ -28,6 +28,8 @@
 
 #include <list>
 
+#include "stdafx.h"
+
 template <typename C>
 class CThreadSafeQueue : protected std::list<C>
 {

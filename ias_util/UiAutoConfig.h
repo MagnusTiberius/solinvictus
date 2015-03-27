@@ -4,6 +4,8 @@
 #include "CommandMsiExec.h"
 #include "Dll.h"
 
+#include "stdafx.h"
+
 class UiAutoConfig
 {
 public:

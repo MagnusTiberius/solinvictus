@@ -1,5 +1,5 @@
 #pragma once
-
+#include "stdafx.h"
 #include "UIAuto.h"
 #include "SetupRepo.h"
 #include "CommandMsiExec.h"

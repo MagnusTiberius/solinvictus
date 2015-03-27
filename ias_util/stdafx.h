@@ -10,9 +10,13 @@
 #include <stdio.h>
 #include <tchar.h>
 
+
 #include <Windows.h>
 #include <iostream>
 #include <vector>
+#include <string>
+#include <map>
+
 //#include "Shlwapi.h"
 
 /*
@@ -33,6 +37,8 @@
 #include <list>
 */
 
+
+#define DATA_BUFSIZE 8192
 
 using namespace std;
 

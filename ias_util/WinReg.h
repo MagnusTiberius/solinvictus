@@ -2,6 +2,9 @@
 #include <windows.h>
 #include <stdlib.h>
 #include <iostream>
+
+#include "stdafx.h"
+
 class WinReg
 {
 public:

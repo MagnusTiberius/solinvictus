@@ -16,4 +16,6 @@
 
 #define DATA_BUFSIZE 8192
 
+using namespace std;
+
 // TODO: reference additional headers your program requires here

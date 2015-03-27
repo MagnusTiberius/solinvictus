@@ -18,6 +18,8 @@
 #include <cstring>
 //#include "atlstr.h"
 
+#include "stdafx.h"
+
 using namespace std;
 
 class UIAuto

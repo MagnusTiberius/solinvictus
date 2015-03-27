@@ -85,14 +85,12 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="HttpHeader.h" />
-    <ClInclude Include="HttpServer.h" />
+    <ClInclude Include="HttpKlaris.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HttpHeader.cpp" />
-    <ClCompile Include="HttpServer.cpp" />
+    <ClCompile Include="HttpKlaris.cpp" />
     <ClCompile Include="klaris.cpp" />
     <ClCompile Include="stdafx.cpp" />
   </ItemGroup>

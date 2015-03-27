@@ -4,6 +4,8 @@
 #include <windows.h>
 #include <stdio.h>
 
+#include "stdafx.h"
+
 #define PORT 5150
 #define DATA_BUFSIZE 8192
 
