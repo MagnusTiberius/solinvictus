@@ -10,7 +10,7 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	HttpKlaris httpserver;
 
-	httpserver.Init(9090);
+	httpserver.Init(8080);
 
 	return 0;
 }

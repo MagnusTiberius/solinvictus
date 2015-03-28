@@ -9,7 +9,7 @@
 
 
 typedef struct configSetting{
-	wchar_t* configFilename;
+	const wchar_t* configFilename;
 	char* installName;
 	char* filesInstall;
 	char* filesInstallExe;

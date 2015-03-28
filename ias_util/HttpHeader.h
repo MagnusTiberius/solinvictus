@@ -32,5 +32,7 @@ private:
 	MethodType m_method;
 	ParseState m_ps;
 
+	int i;
+
 };
 

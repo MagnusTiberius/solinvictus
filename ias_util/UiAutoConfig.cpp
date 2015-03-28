@@ -165,7 +165,7 @@ DWORD UiAutoConfig::VerifyAddressName(char* dllfile, char* procnames)
 
 }
 
-DWORD UiAutoConfig::LoadConfig(wchar_t* jsonfile)
+DWORD UiAutoConfig::LoadConfig(const wchar_t* jsonfile)
 {
 	json_config = jsonconfig.ReadFileIntoStringA(jsonfile);
 	const std::string jcfg = std::string(json_config);

@@ -16,6 +16,7 @@ public:
 
 	void HandleTest();
 	void HandleHome();
+	void HandleCollector();
 
 private:
 	std::map <std::string, LP_MEM_FUNC3> m_routes;

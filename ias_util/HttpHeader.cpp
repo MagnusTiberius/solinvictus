@@ -17,7 +17,7 @@ void HttpHeader::Parse(char* content)
 	ZeroMemory(buf1, DATA_BUFSIZE);
 	int buf1_ptr = 0;
 	int len = strlen(content);
-	int i = 0;
+	i = 0;
 	char c = content[i];
 	while (c != '\0')
 	{
@@ -28,6 +28,12 @@ void HttpHeader::Parse(char* content)
 		}
 		if (c == '\n')
 		{
+			if (strlen(buf1)==0)
+			{
+				// header parsing is complete.
+				return;
+			}
+
 			if (m_ps == PSTATE_URL) // url detected
 			{
 				printf("method found: %s\n", buf1);
