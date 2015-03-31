@@ -321,8 +321,8 @@ struct _SecHandle *hcText)
 		InSecBuff.pvBuffer = pIn;
 
 		auto str = std::string(pszTarget);
-		auto trgt = std::wstring(str.begin(), str.end()).c_str();
-		SEC_WCHAR *wc = (SEC_WCHAR*)trgt;
+		std::wstring trgt = std::wstring(str.begin(), str.end());
+		SEC_WCHAR *wc = (SEC_WCHAR*)trgt.c_str();
 
 		ss = InitializeSecurityContext(
 			hCred,
@@ -341,8 +341,8 @@ struct _SecHandle *hcText)
 	else
 	{
 		auto str = std::string(pszTarget);
-		auto trgt = std::wstring(str.begin(), str.end()).c_str();
-		SEC_WCHAR *wc = (SEC_WCHAR*)trgt;
+		std::wstring trgt = std::wstring(str.begin(), str.end());
+		SEC_WCHAR *wc = (SEC_WCHAR*)trgt.c_str();
 		ss = InitializeSecurityContext(
 			hCred,
 			NULL,

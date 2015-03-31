@@ -6,14 +6,37 @@
 #include "Winhttp.h"
 #include "Sspi.h"
 //#include "Wininet.h"
+#include "SspiServer.h"
+#include "SspiClient.h"
+
+HANDLE hWorkerThread[2];
+DWORD  dwId[2];
 
 BOOL bResults = FALSE;
 HINTERNET	hSession = NULL,
 hConnect = NULL,
 hRequest = NULL;
 
+void ServerThread()
+{
+	SspiServer sspiServer;
+	sspiServer.Run();
+}
+
+void ClientThread()
+{
+	SspiClient sspiClient;
+	sspiClient.Run();
+}
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	hWorkerThread[0] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ServerThread, 0, 0, &dwId[0]);
+	hWorkerThread[1] = CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)ClientThread, 0, 0, &dwId[1]);
+	WaitForMultipleObjects(2, hWorkerThread, TRUE, INFINITE);
+
+	return 0;
 
 	ULONG pcPackages;
 	PSecPkgInfo ppPackageInfo[1024];
