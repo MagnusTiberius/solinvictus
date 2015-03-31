@@ -103,7 +103,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\imports\jsoncpp\include;$(SolutionDir)\jsoncpp\include\json\</AdditionalIncludeDirectories>
     </ClCompile>
@@ -125,7 +125,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\imports\jsoncpp\include;</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
@@ -151,7 +151,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WINSOCK_DEPRECATED_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\imports\jsoncpp\include;</AdditionalIncludeDirectories>
     </ClCompile>
@@ -166,7 +166,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Buffer.hpp" />
+    <ClInclude Include="certificate.hpp" />
     <ClInclude Include="CommandMsiExec.h" />
+    <ClInclude Include="cschannel.h" />
     <ClInclude Include="DirChange.h" />
     <ClInclude Include="Dll.h" />
     <ClInclude Include="HttpHeader.h" />
@@ -176,6 +179,9 @@
     <ClInclude Include="MsiConfig.h" />
     <ClInclude Include="ReadDirectoryChanges.h" />
     <ClInclude Include="ReadDirectoryChangesPrivate.h" />
+    <ClInclude Include="SChannelClient.hpp" />
+    <ClInclude Include="SchannelPeer.hpp" />
+    <ClInclude Include="SchannelServer.hpp" />
     <ClInclude Include="SetupRepo.h" />
     <ClInclude Include="SharedFile.h" />
     <ClInclude Include="SocketClient.h" />
@@ -191,7 +197,9 @@
     <ClInclude Include="WinReg.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="certificate.cpp" />
     <ClCompile Include="CommandMsiExec.cpp" />
+    <ClCompile Include="cschannel.c" />
     <ClCompile Include="DirChange.cpp" />
     <ClCompile Include="Dll.cpp" />
     <ClCompile Include="HttpHeader.cpp" />

@@ -35,6 +35,9 @@ int SocketSelectServer::Init(u_short portnum)
 	else
 		printf("WSAStartup() is fine!\n");
 
+
+
+
 	// Prepare a socket to listen for connections
 	if ((ListenSocket = WSASocket(AF_INET, SOCK_STREAM, 0, NULL, 0, WSA_FLAG_OVERLAPPED)) == INVALID_SOCKET)
 	{

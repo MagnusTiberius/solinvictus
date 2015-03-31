@@ -27,6 +27,8 @@ protected:
 	LPSOCKET_INFORMATION m_SocketInfo;
 	HttpHeader httpHeader;
 
+	demo::Server server;
+
 private:
 
 	std::map <std::string, LP_MEM_FUNC> m_routes;

@@ -29,6 +29,7 @@ public:
 	int Install(lpConfigSetting configSetting);
 	int Uninstall(lpConfigSetting cs);
 	BOOL ValidateFileContent(char* szFileName, size_t siz);
+	std::string GetFileContent();
 
 private:
 	void UiAutoInstallValidate();
@@ -48,6 +49,7 @@ private:
 	IasVersion iasversion;
 	wchar_t* configFileCurrentVer;
 	int cnt;
+	std::string fileContent;
 
 #if defined(_WIN64)
 	const int PLATFORM = 64;

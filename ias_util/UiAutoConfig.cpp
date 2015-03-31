@@ -172,6 +172,6 @@ DWORD UiAutoConfig::LoadConfig(const wchar_t* jsonfile)
 
 	Json::Reader reader;
 	std::ifstream test(jsonfile, std::ifstream::binary);
-	reader.parse(test, root, false);
+	bool res = reader.parse(jcfg, root, false);
 	return 0;
 }

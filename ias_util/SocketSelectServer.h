@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #include "stdafx.h"
-
+#include "SChannelServer.hpp"
 
 #define PORT 5150
 #define DATA_BUFSIZE 8192
@@ -39,6 +39,8 @@ protected:
 		DWORD	Location;
 	} CONNECTED_ENTITY_INFORMATION, *LPCONNECTED_ENTITY_INFORMATION;
 	LPCONNECTED_ENTITY_INFORMATION ConnectedEntityArray[SOCKET_ARRAY_SZ];   //FD_SETSIZE
+
+	
 
 public:
 	int Init(u_short portnum);

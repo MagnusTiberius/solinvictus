@@ -151,13 +151,17 @@ BOOL MsiConfig::ValidateFileContent(char* szFileName, size_t siz)
 	JsonConfig jsonconfig;
 	std::wstring wstr = std::wstring(szFileName, szFileName + strlen(szFileName));
 	std::string json_config = jsonconfig.ReadFileIntoStringA(wstr.c_str());
+	fileContent = json_config;
 	Json::Value root;
 	Json::Reader reader;
 	bool res = reader.parse(json_config.c_str(), root, false);
 	return res;
 }
 
-
+std::string MsiConfig::GetFileContent()
+{
+	return fileContent;
+}
 
 int MsiConfig::Install(lpConfigSetting cs)
 {

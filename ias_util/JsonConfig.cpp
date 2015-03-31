@@ -34,9 +34,10 @@ std::wstring JsonConfig::ReadFileIntoStringW(const std::wstring& filepath)
 std::string JsonConfig::ReadFileIntoStringA(const std::wstring& filepath)
 {
 	wszFileName = std::wstring(filepath.begin(), filepath.end());
-
+	Sleep(500);
 	std::string str;
 	std::ifstream file(filepath.c_str(), std::ios::in | std::ios::binary | std::ios::ate);
+	Sleep(500);
 	size_t size = (size_t)file.tellg();
 	file.seekg(0, std::ios::beg);
 	char* buffer = new char[size];
