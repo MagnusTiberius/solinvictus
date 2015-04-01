@@ -18,6 +18,8 @@ public:
 	SocketCompletionPortServer();
 	~SocketCompletionPortServer();
 
+	SocketCompletionPortServer(int PortNum);
+
 	typedef struct
 	{
 		OVERLAPPED Overlapped;
@@ -36,11 +38,14 @@ public:
 	int Start();
 
 	HANDLE GetCompletionPort();
+	virtual void EvalGet(HttpRequest *httpRequest, HttpResponse *httpResponse);
+	virtual void EvalPost(HttpRequest *httpRequest, HttpResponse *httpResponse);
 
 private:
 	static DWORD WINAPI ServerWorkerThread(LPVOID CompletionPortID);
-
+	void Dispatch(HttpRequest *httpRequest, HttpResponse *httpResponse);
 	HANDLE CompletionPort;
+	int m_PortNum = PORT;
 
 };
 

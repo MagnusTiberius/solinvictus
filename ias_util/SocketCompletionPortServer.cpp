@@ -10,6 +10,10 @@ SocketCompletionPortServer::~SocketCompletionPortServer()
 {
 }
 
+SocketCompletionPortServer::SocketCompletionPortServer(int PortNum)
+{
+	m_PortNum = PortNum;
+}
 
 int SocketCompletionPortServer::Start()
 {
@@ -75,7 +79,7 @@ int SocketCompletionPortServer::Start()
 
 	InternetAddr.sin_family = AF_INET;
 	InternetAddr.sin_addr.s_addr = htonl(INADDR_ANY);
-	InternetAddr.sin_port = htons(PORT);
+	InternetAddr.sin_port = htons(m_PortNum);
 
 	if (bind(Listen, (PSOCKADDR)&InternetAddr, sizeof(InternetAddr)) == SOCKET_ERROR)
 	{
@@ -162,6 +166,28 @@ HANDLE SocketCompletionPortServer::GetCompletionPort()
 	return CompletionPort;
 }
 
+void SocketCompletionPortServer::EvalGet(HttpRequest *httpRequest, HttpResponse *httpResponse)
+{
+	printf("SocketCompletionPortServer::EvalGet\n");
+}
+
+void SocketCompletionPortServer::EvalPost(HttpRequest *httpRequest, HttpResponse *httpResponse)
+{
+	printf("SocketCompletionPortServer::EvalPost\n");
+}
+
+void SocketCompletionPortServer::Dispatch(HttpRequest *httpRequest, HttpResponse *httpResponse)
+{
+	if (httpRequest->GetMethod() == HttpHeader::MethodType::HTTP_GET)
+	{
+		EvalGet(httpRequest, httpResponse);
+	}
+	if (httpRequest->GetMethod() == HttpHeader::MethodType::HTTP_POST)
+	{
+		EvalPost(httpRequest, httpResponse);
+	}
+}
+
 DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 {
 	SocketCompletionPortServer *obj = (SocketCompletionPortServer*)lpObject;
@@ -173,6 +199,7 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 	DWORD Flags;
 
 	HttpRequest httpRequest;
+	HttpResponse httpResponse;
 
 	while (TRUE)
 	{
@@ -206,6 +233,7 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 		if (PerIoData->BytesRECV > 0)
 		{
 			httpRequest.Parse(PerIoData->DataBuf.buf);
+			obj->Dispatch(&httpRequest, &httpResponse);
 		}
 
 

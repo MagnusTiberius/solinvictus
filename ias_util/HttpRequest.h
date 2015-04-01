@@ -1,4 +1,7 @@
 #pragma once
+#include "HttpHeader.h"
+
+
 class HttpRequest
 {
 public:
@@ -6,6 +9,10 @@ public:
 	~HttpRequest();
 
 	void Parse(char *content);
+	char* GetUrl();
+	HttpHeader::MethodType GetMethod();
 
+private:
+	HttpHeader httpHeader;
 };
 

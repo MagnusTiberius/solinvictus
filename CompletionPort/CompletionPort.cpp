@@ -2,14 +2,14 @@
 //
 
 #include "stdafx.h"
-#include "SocketCompletionPortServer.h"
+#include "IocpHttpd.h"
 
 
 
 int _tmain(int argc, _TCHAR* argv[])
 {
 
-	SocketCompletionPortServer server;
+	IocpHttpd server;
 	server.Start();
 
 	return 0;

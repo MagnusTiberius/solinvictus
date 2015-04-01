@@ -82,7 +82,17 @@ void HttpHeader::Parse(char* content)
 				c = content[++i];
 				continue;
 			}
-			if (m_ps == PSTATE_GET) // url detected
+			if (strcmp(buf1, "POST") == 0) // method detected
+			{
+				printf("method found: %s\n", buf1);
+				ZeroMemory(buf1, DATA_BUFSIZE);
+				buf1_ptr = 0;
+				m_method = HTTP_POST;
+				m_ps = PSTATE_POST;
+				c = content[++i];
+				continue;
+			}
+			if (m_ps == PSTATE_GET || m_ps == PSTATE_POST) // url detected
 			{
 				printf("method found: %s\n", buf1);
 				ZeroMemory(m_url, DATA_BUFSIZE);
@@ -125,9 +135,9 @@ void HttpHeader::Parse(char* content)
 	}
 }
 
-int HttpHeader::Method()
+HttpHeader::MethodType HttpHeader::GetMethod()
 {
-	return 0;
+	return m_method;
 }
 
 bool HttpHeader::Url(char *urlval)
