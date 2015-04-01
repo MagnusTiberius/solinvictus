@@ -6,6 +6,9 @@
 
 #include "stdafx.h"
 
+#include "HttpRequest.h"
+#include "HttpResponse.h"
+
 #define PORT 5150
 #define DATA_BUFSIZE 8192
 
@@ -32,7 +35,12 @@ public:
 
 	int Start();
 
+	HANDLE GetCompletionPort();
+
 private:
 	static DWORD WINAPI ServerWorkerThread(LPVOID CompletionPortID);
+
+	HANDLE CompletionPort;
+
 };
 

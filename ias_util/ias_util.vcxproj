@@ -173,6 +173,8 @@
     <ClInclude Include="DirChange.h" />
     <ClInclude Include="Dll.h" />
     <ClInclude Include="HttpHeader.h" />
+    <ClInclude Include="HttpRequest.h" />
+    <ClInclude Include="HttpResponse.h" />
     <ClInclude Include="HttpServer.h" />
     <ClInclude Include="IasVersion.h" />
     <ClInclude Include="JsonConfig.h" />
@@ -203,6 +205,8 @@
     <ClCompile Include="DirChange.cpp" />
     <ClCompile Include="Dll.cpp" />
     <ClCompile Include="HttpHeader.cpp" />
+    <ClCompile Include="HttpRequest.cpp" />
+    <ClCompile Include="HttpResponse.cpp" />
     <ClCompile Include="HttpServer.cpp" />
     <ClCompile Include="IasVersion.cpp" />
     <ClCompile Include="JsonConfig.cpp" />
