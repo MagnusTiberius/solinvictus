@@ -176,6 +176,7 @@
     <ClInclude Include="HttpRequest.h" />
     <ClInclude Include="HttpResponse.h" />
     <ClInclude Include="HttpServer.h" />
+    <ClInclude Include="HttpUrlRoute.h" />
     <ClInclude Include="IasVersion.h" />
     <ClInclude Include="JsonConfig.h" />
     <ClInclude Include="MsiConfig.h" />
@@ -208,6 +209,7 @@
     <ClCompile Include="HttpRequest.cpp" />
     <ClCompile Include="HttpResponse.cpp" />
     <ClCompile Include="HttpServer.cpp" />
+    <ClCompile Include="HttpUrlRoute.cpp" />
     <ClCompile Include="IasVersion.cpp" />
     <ClCompile Include="JsonConfig.cpp" />
     <ClCompile Include="MsiConfig.cpp" />

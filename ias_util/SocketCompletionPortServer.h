@@ -8,11 +8,12 @@
 
 #include "HttpRequest.h"
 #include "HttpResponse.h"
+#include "HttpUrlRoute.h"
 
 #define PORT 5150
 #define DATA_BUFSIZE 8192
 
-class SocketCompletionPortServer
+class SocketCompletionPortServer : public HttpUrlRoute
 {
 public:
 	SocketCompletionPortServer();
@@ -34,16 +35,17 @@ public:
 		SOCKET Socket;
 	} PER_HANDLE_DATA, *LPPER_HANDLE_DATA;
 
+	typedef /*static*/ void(*LPSTATICFUNC)(HttpRequest *httpRequest, HttpResponse *httpResponse);
 
 	int Start();
 
 	HANDLE GetCompletionPort();
 	virtual void EvalGet(HttpRequest *httpRequest, HttpResponse *httpResponse);
 	virtual void EvalPost(HttpRequest *httpRequest, HttpResponse *httpResponse);
+	virtual void Dispatch(HttpRequest *httpRequest, HttpResponse *httpResponse);
 
 private:
 	static DWORD WINAPI ServerWorkerThread(LPVOID CompletionPortID);
-	void Dispatch(HttpRequest *httpRequest, HttpResponse *httpResponse);
 	HANDLE CompletionPort;
 	int m_PortNum = PORT;
 

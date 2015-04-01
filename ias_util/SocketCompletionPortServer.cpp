@@ -186,6 +186,9 @@ void SocketCompletionPortServer::Dispatch(HttpRequest *httpRequest, HttpResponse
 	{
 		EvalPost(httpRequest, httpResponse);
 	}
+
+	LPSTATICFUNC lpFunc = (LPSTATICFUNC)GetRoute(httpRequest->GetUrl());
+	(*lpFunc)(httpRequest, httpResponse);
 }
 
 DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
@@ -236,6 +239,7 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 			obj->Dispatch(&httpRequest, &httpResponse);
 		}
 
+		continue;
 
 		// Check to see if the BytesRECV field equals zero. If this is so, then
 		// this means a WSARecv call just completed so update the BytesRECV field

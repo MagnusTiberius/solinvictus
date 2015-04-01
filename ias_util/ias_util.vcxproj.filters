@@ -111,6 +111,9 @@
     <ClInclude Include="HttpResponse.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="HttpUrlRoute.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JsonConfig.cpp">
@@ -186,6 +189,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="HttpResponse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HttpUrlRoute.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
