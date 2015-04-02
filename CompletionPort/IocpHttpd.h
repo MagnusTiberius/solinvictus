@@ -15,5 +15,8 @@ public:
 	static void HandleTest(HttpRequest *httpRequest, HttpResponse *httpResponse);
 	static void HandleInit(HttpRequest *httpRequest, HttpResponse *httpResponse);
 
+private:
+	DWORD dwThreadId;
+
 };
 

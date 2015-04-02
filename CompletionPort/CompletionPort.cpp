@@ -10,7 +10,7 @@ int _tmain(int argc, _TCHAR* argv[])
 {
 
 	IocpHttpd server;
-	server.Start();
+	server.Start(5150);
 
 	return 0;
 }
