@@ -38,7 +38,7 @@ void HttpServer::AddRoute(char *purl, LP_MEM_FUNC lpFunc)
 
 void HttpServer::Request(LPSOCKET_INFORMATION pSocketInfo)
 {
-	printf("Recv:\n%s\n", pSocketInfo->DataBuf.buf);
+	fprintf(stderr, "Recv:\n%s\n", pSocketInfo->DataBuf.buf);
 	server << pSocketInfo->DataBuf.buf;
 	std::string msgout;
 	server >> msgout;
