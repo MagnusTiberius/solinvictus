@@ -108,7 +108,7 @@ void VersionValidate::Validate()
 			}
 			if (name.compare(L"ProductName") == 0)
 			{
-				if (value.compare(L"Intel Telemetry") == 0)
+				if (value.compare(L"Product Item") == 0)
 				{
 
 				}
