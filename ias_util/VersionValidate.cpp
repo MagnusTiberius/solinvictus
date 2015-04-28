@@ -82,7 +82,7 @@ void VersionValidate::Validate()
 			}
 			if (name.compare(L"CompanyName") == 0)
 			{
-				if (value.compare(L"Intel Corporation") == 0)
+				if (value.compare(L"ABC Corporation") == 0)
 				{
 
 				}
