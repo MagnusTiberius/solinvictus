@@ -29,6 +29,6 @@ void HttpResponse::GetResponse(char* pszResponse, DWORD dwSize)
 	size_t siz = strlen(m_szResponse.c_str());
 	sprintf_s(pszResponse, dwSize, "%s%s%d%s", pszResponse, "Content-Length: ", siz, "\n\n");
 	sprintf_s(pszResponse, dwSize, "%s%s%s", pszResponse, m_szResponse.c_str(), "\n");
-	printf("%d::%s \n", dwThreadId, m_szResponse.c_str());
+	fprintf(stderr, "%d::%s \n", dwThreadId, m_szResponse.c_str());
 
 }

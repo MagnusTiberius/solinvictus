@@ -27,7 +27,7 @@ int SocketCompletionPortServer::Start()
 	SOCKET Listen;
 	HANDLE ThreadHandle;
 	SOCKET Accept;
-	
+
 	SYSTEM_INFO SystemInfo;
 	LPPER_HANDLE_DATA PerHandleData;
 	LPPER_IO_OPERATION_DATA PerIoData;
@@ -161,7 +161,7 @@ int SocketCompletionPortServer::Start()
 			if (WSAGetLastError() != ERROR_IO_PENDING)
 			{
 				fprintf(stderr, "%d::WSARecv() failed with error %d\n", dwThreadId, WSAGetLastError());
-				isOK = false;
+				isOK = true;
 				continue;
 			}
 		}
@@ -203,6 +203,15 @@ void SocketCompletionPortServer::Dispatch(HttpRequest *httpRequest, HttpResponse
 	{
 		(*lpFunc)(httpRequest, httpResponse);
 	}
+	else
+	{
+		UrlNotFound(httpRequest, httpResponse);
+	}
+}
+
+void SocketCompletionPortServer::UrlNotFound(HttpRequest *httpRequest, HttpResponse *httpResponse)
+{
+	fprintf(stderr, "SocketCompletionPortServer::UrlNotFound: %s \n", httpRequest->GetUrl());
 }
 
 DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
@@ -225,7 +234,7 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 	while (TRUE)
 	{
 		BOOL res1 = GetQueuedCompletionStatus(CompletionPort, &BytesTransferred, (PULONG_PTR)&PerHandleData, (LPOVERLAPPED *)&PerIoData, INFINITE);
-		if (res1==0)
+		if (res1 == 0)
 		{
 			fprintf(stderr, "%d::ServerWorkerThread--GetQueuedCompletionStatus() failed with error %d\n", dwThreadId, GetLastError());
 			return 0;
@@ -275,11 +284,11 @@ DWORD WINAPI SocketCompletionPortServer::ServerWorkerThread(LPVOID lpObject)
 			PerIoData->DataBuf.buf = PerIoData->Buffer;
 
 			DWORD res2 = WSARecv(PerHandleData->Socket, &(PerIoData->DataBuf), 1, &RecvBytes, &Flags,
-				&(PerIoData->Overlapped), NULL);
+			&(PerIoData->Overlapped), NULL);
 
 			if (res2 == SOCKET_ERROR)
 			{
-				printf("ServerWorkerThread--WSARecv() failed with error %d\n", WSAGetLastError());
+			printf("ServerWorkerThread--WSARecv() failed with error %d\n", WSAGetLastError());
 			}
 			*/
 		}
