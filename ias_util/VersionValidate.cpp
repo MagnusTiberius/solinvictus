@@ -119,7 +119,7 @@ void VersionValidate::Validate()
 			}
 			if (name.compare(L"LegalCopyright") == 0)
 			{
-				if (value.compare(L"Copyright 2013-2015 Intel Corporation. All Rights Reserved.") == 0)
+				if (value.compare(L"Copyright 2013-2015 Corporation. All Rights Reserved.") == 0)
 				{
 
 				}
