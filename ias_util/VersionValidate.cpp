@@ -15,18 +15,12 @@ VersionValidate::~VersionValidate()
 void VersionValidate::Validate()
 {
 	std::vector<std::wstring> dirlist;
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\src\\lib\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\src\\exe\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\src\\installer\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_ias_api\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_ias_libias2\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_ias_policy\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_ias_store\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_libnetio\\");
-	dirlist.push_back(L"C:\\bbgPkgs\\p4\\telemetry\\bbgonzax_bbgonzax-desk_dev-bbgonzaX_1111_9653\\test\\t_logbench\\");
+	dirlist.push_back(L"C:\\src\\lib\\");
+	dirlist.push_back(L"C:\\src\\exe\\");
+	dirlist.push_back(L"C:\\src\\installer\\");
 
 	std::vector<std::wstring> dirlist2;
-	dirlist2.push_back(L"C:\\Users\\bbgonzaX\\AppData\\Local\\Intel_IAS_QA\\LanternRockSDK-2.0.56.205949\\");
+	dirlist2.push_back(L"C:\\Users\\");
 
 
 	std::vector<std::wstring>::iterator itr_dirlist;
@@ -38,8 +32,8 @@ void VersionValidate::Validate()
 		std::string str;
 		str.assign(body);
 
-		std::regex pattern1("(INTEL CONFIDENTIAL|Copyright \d{4}-\d{4}|Intel Corporation All Rights Reserved|2013|2015|Intel|Corporation)");
-		std::regex pattern2("(INTEL CONFIDENTIAL|Copyright \d{4}-\d{4}|Intel Corporation All Rights Reserved)");
+		std::regex pattern1("");
+		std::regex pattern2("");
 		std::smatch vmatch;
 		//bool match = regex_search(str, vmatch, pattern1);
 		bool match = regex_search(str.begin(), str.end(), pattern2);
